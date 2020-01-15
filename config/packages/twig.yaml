@@ -1,0 +1,5 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    paths:
+        '%kernel.project_dir%/src/Custom': 'Custom'
+    form_themes: ['bootstrap_4_horizontal_layout.html.twig']

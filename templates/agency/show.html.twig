@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agency{% endblock %}
+
+{% block stylesheets %}
+        <link rel="stylesheet" type="text/css"
+              href="{{ path('custom_assets', {'id': agency.user.id, 'filename': 'custom_agency_style', 'extension': 'css'}) }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="badge badge-light float-right">{{ agency.user }}</span>
+                        <h4>Agency</h4>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ agency.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Title</th>
+                            <td>{{ agency.title }}</td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>{{ agency.description }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="card-footer">
+                        <a class="btn btn-success float-right" href="{{ path('agency_edit', {'id': agency.id}) }}">edit</a>
+                        <a class="btn btn-outline-dark" href="{{ path('agency_index') }}">back to list</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="badge badge-light float-right">{{ agency.title }}</span>
+                        <h4>Members</h4>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <td>#</td>
+                                <td>username</td>
+                                <td>email</td>
+                                <td>website</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tbody>
+                            {% for member in members %}
+                                <tr>
+                                    <td>{{ member.id }}</td>
+                                    <td>{{ member.username }}</td>
+                                    <td>{{ member.email }}</td>
+                                    <td>{{ member.website }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="4">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

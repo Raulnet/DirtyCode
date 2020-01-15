@@ -1,0 +1,28 @@
+version: '3.2'
+
+networks:
+  dirtycode:
+    external:
+      name: dirtycode
+
+services:
+  app:
+    networks:
+      default:
+        aliases:
+          - dirtycode.wip
+      dirtycode:
+        aliases:
+          - dirtycode.wip
+    environment:
+      - VIRTUAL_HOST=dirtycode.wip
+      - VIRTUAL_PORT=80
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    networks:
+      - default
+      - dirtycode
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro

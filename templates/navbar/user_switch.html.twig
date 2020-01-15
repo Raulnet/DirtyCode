@@ -1,0 +1,7 @@
+<li class="nav-pipe"></li>
+{%- for user in users -%}
+<li>
+    <a class="nav-link" href="{{ path('home', {'_switch_user': user.username}) }}">{{ user.username }}</a>
+</li>
+{%- endfor -%}
+<li class="nav-pipe"></li>

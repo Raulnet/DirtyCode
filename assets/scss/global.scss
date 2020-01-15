@@ -1,0 +1,7 @@
+@import "assets/scss/boostrap-reset";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "assets/scss/box-shadow";
+
+.nav-pipe {
+  border-left: 1px solid lighten($primary, 20%);
+}

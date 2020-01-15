@@ -1,0 +1,7 @@
+.nav-pipe {
+    border-left: 1px solid #ff342a;
+}
+
+nav.navbar.bg-primary {
+    background-color: #ff342a !important;
+}

@@ -1,0 +1,14 @@
+framework:
+    default_locale: en_GB
+    translator:
+        paths:
+            - '%kernel.project_dir%/translations'
+            - '%kernel.project_dir%/src/Custom/U2/translations'
+        fallbacks:
+            - en_GB
+
+
+
+
+
+

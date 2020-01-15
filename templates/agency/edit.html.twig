@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Agency{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                {{ include('agency/_delete_form.html.twig') }}
+                <h4>Edit Agency</h4>
+            </div>
+            <div class="card-body">
+                {{ include('agency/_form.html.twig', {'button_label': 'Update'}) }}
+                <a class="btn btn-outline-dark" href="{{ path('agency_index') }}">back to list</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

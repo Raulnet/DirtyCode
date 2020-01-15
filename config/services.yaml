@@ -1,0 +1,35 @@
+parameters:
+    path_custom_dir: '%kernel.project_dir%/src/Custom'
+
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            $pathCustomDir: '%path_custom_dir%'
+
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
+
+    App\EventSubscriber\LocalSubscriber:
+        arguments: ['%kernel.default_locale%']
+        tags: [kernel.event_subscriber]
+
+
+
+    # ...
+
+    # config/services.yaml
+
+    _instanceof:
+        App\Service\AgencyServiceInterface:
+            tags: ['app.agency.service']
+
+    App\Service\CustomService\AgencyServiceTaggedFactory:
+        arguments:
+            - !tagged { tag: app.agency.service, index_by: 'service' }

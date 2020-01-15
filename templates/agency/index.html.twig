@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agency index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <a class="float-right btn btn-primary btn-sm" href="{{ path('agency_new') }}">Create new</a>
+                <h4>Agency index</h4>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Owner</th>
+                    <th>actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for agency in agencies %}
+                    <tr>
+                        <td>{{ agency.id }}</td>
+                        <td>{{ agency.title }}</td>
+                        <td>{{ agency.description }}</td>
+                        <td>{{ agency.user }}</td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a class="btn btn-outline-primary" href="{{ path('agency_show', {'id': agency.id}) }}">show</a>
+                                <a class="btn btn-outline-success" href="{{ path('agency_edit', {'id': agency.id}) }}">edit</a>
+                            </div>
+
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

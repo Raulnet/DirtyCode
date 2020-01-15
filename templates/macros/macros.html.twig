@@ -1,0 +1,6 @@
+{% macro custom_template(userId, template) %}
+   {% include [
+       "@Custom/U"~userId~"/templates/custom"~template~".html.twig",
+       "_partial/"~template~".html.twig"
+       ] %}
+{% endmacro %}
