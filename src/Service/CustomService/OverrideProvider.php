@@ -4,29 +4,33 @@ namespace App\Service\CustomService;
 
 use App\Entity\User;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class OverrideProvider
 {
     private const DYNAMIC_DOMAIN = 'dynamic';
-    private const TRANSLATE_USER_TEMPLATE = '/U%USER_ID%/translations/%DOMAIN%.%LOCALE%.yaml';
-    private const ASSETS_USER_TEMPLATE = '/U%USER_ID%/assets/%FILENAME%.%EXTENSION%';
-    private const SERVICE_USER_NAMESPACE = 'App\Custom\U%USER_ID%\Service\Custom%CLASS_NAME%';
+    private const TRANSLATE_USER_TEMPLATE = '/User%USER_ID%/translations/%DOMAIN%.%LOCALE%.yaml';
+    private const ASSETS_USER_TEMPLATE = '/User%USER_ID%/assets/%FILENAME%.%EXTENSION%';
+    private const SERVICE_USER_NAMESPACE = 'App\Custom\User%USER_ID%\Service\Custom%CLASS_NAME%';
 
     private $pathCustomDir;
     private $locale = 'en_GB';
     private $translator;
+    private $customCache;
 
     public function __construct(
         string $pathCustomDir,
         RequestStack $requestStack,
-        TranslatorInterface $translator
+        TranslatorInterface $translator,
+        CacheInterface $customCache
     ) {
         $this->pathCustomDir = $pathCustomDir;
         if ($requestStack->getCurrentRequest()) {
             $this->locale = $requestStack->getCurrentRequest()->getLocale();
         }
         $this->translator = $translator;
+        $this->customCache = $customCache;
     }
 
     public function addCustomTransResource(

@@ -6,9 +6,3 @@ framework:
             - '%kernel.project_dir%/src/Custom/U2/translations'
         fallbacks:
             - en_GB
-
-
-
-
-
-

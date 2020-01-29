@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Custom\U2\Service;
+namespace App\Custom\User2\Service;
 
 use App\Entity\Agency;
 use App\Entity\Member;
