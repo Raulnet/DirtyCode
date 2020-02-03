@@ -3,6 +3,6 @@ framework:
     translator:
         paths:
             - '%kernel.project_dir%/translations'
-            - '%kernel.project_dir%/src/Custom/U2/translations'
+            - '%kernel.project_dir%/src/Custom/User2/translations'
         fallbacks:
             - en_GB

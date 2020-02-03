@@ -11,7 +11,7 @@ class AgencyFixtures extends Fixture implements DependentFixtureInterface
 {
     private const AGENCIES = [
         ['Heroes Agency', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et', 'bob-user', 'bob-agency'],
-        ['Evil Company', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam', 'karl-user', 'kevin-agency'],
+        ['Evil Company', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam', 'karl-user', 'karl-agency'],
     ];
 
     public function getDependencies()
