@@ -12,7 +12,7 @@ class AutomaticCustomTest extends TestCase
 {
     private const DEFAULT_FILE_DYNAMIC_DOMAIN = __DIR__.'/../../translations/dynamic.en_GB.yaml';
     private const CUSTOM_FILE_SUPPORTED = [
-        'custom_jumbotron.html.twig',
+        'custom_header.html.twig',
         'custom_agency_style.css',
         'custom_style.css',
         'CustomAgencyService.php',

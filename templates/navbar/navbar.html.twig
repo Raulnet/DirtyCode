@@ -13,6 +13,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('agency_index') }}">Agency</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('shop_index') }}">Shop</a>
+            </li>
         </ul>
         <ul class="navbar-nav">
             {% set urlFallback = path(app.request.get('_route'), app.request.get('_route_params')) %}

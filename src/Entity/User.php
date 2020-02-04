@@ -40,9 +40,15 @@ class User implements UserInterface
      */
     private $agencies;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Shop", mappedBy="user")
+     */
+    private $shops;
+
     public function __construct()
     {
         $this->agencies = new ArrayCollection();
+        $this->shops = new ArrayCollection();
     }
 
     public function __toString()
@@ -132,6 +138,37 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($agency->getUser() === $this) {
                 $agency->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Shop[]
+     */
+    public function getShops(): Collection
+    {
+        return $this->shops;
+    }
+
+    public function addShop(Shop $shop): self
+    {
+        if (!$this->shops->contains($shop)) {
+            $this->shops[] = $shop;
+            $shop->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeShop(Shop $shop): self
+    {
+        if ($this->shops->contains($shop)) {
+            $this->shops->removeElement($shop);
+            // set the owning side to null (unless already changed)
+            if ($shop->getUser() === $this) {
+                $shop->setUser(null);
             }
         }
 

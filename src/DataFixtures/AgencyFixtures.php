@@ -5,7 +5,6 @@ namespace App\DataFixtures;
 use App\Entity\Agency;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
 
 class AgencyFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -21,7 +20,7 @@ class AgencyFixtures extends Fixture implements DependentFixtureInterface
         ];
     }
 
-    public function load(ObjectManager $manager)
+    public function load(\Doctrine\Persistence\ObjectManager $manager)
     {
         foreach (self::AGENCIES as $dataAgency) {
             $agency = new Agency();

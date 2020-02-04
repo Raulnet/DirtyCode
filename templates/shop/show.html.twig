@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shop{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h4>{{ block('title') }}</h4>
+            </div>
+            <table class="table table-striped">
+                <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ shop.id }}</td>
+                </tr>
+                <tr>
+                    <th>Title</th>
+                    <td>{{ shop.title }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="card-footer">
+                <a class="btn btn-outline-dark" href="{{ path('shop_index') }}">back to list</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

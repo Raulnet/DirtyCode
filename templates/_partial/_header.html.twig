@@ -1,0 +1,14 @@
+{% set dynamicDomain = dynamic_domain(userId) %}
+<div class="jumbotron">
+    <h1 class="display-4">
+        {{ "my.title"|trans([], dynamicDomain) }}
+    </h1>
+    <p>{{ "description"|trans([], dynamicDomain) }}</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg"
+           href="#"
+           role="button">
+            Learn more
+        </a>
+    </p>
+</div>

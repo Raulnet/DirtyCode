@@ -20,12 +20,6 @@ services:
         arguments: ['%kernel.default_locale%']
         tags: [kernel.event_subscriber]
 
-
-
-    # config/services.yaml
-
-    # ...
-
     _instanceof:
         App\Service\AgencyServiceInterface:
             tags: ['app.agency.service']

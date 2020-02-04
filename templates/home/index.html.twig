@@ -4,16 +4,15 @@
 {% block title %}Home page{% endblock %}
 
 {% block stylesheets %}
-    {% if app.user %}
+      {% set userId = (app.user ? app.user.id : 0) %}
         <link rel="stylesheet" type="text/css"
-              href="{{ path('custom_assets', {'id': app.user.id, 'filename': 'custom_style', 'extension': 'css'}) }}">
-    {% endif %}
+              href="{{ path('custom_assets', {'id': userId, 'filename': 'custom_style', 'extension': 'css'}) }}">
 {% endblock %}
 
 {% block body %}
-    <div class="container">
-        {% set userId = (app.user ? app.user.id : 0) %}
+    {% set userId = (app.user ? app.user.id : 0) %}
 
-        {{ macro.custom_template(userId, '_jumbotron') }}
+    <div class="container">
+        {{ macro.custom_template(userId, '_header') }}
     </div>
 {% endblock %}
