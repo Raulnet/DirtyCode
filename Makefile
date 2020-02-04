@@ -109,7 +109,7 @@ watch: node_modules ## Run Webpack Encore in watch mode
 	$(YARN) run watch
 
 node_modules:
-	$(YARN) install
+	$(YARN) install --force
 	@touch -c node_modules
 
 yarn.lock: package.json
