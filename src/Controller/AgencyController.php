@@ -62,19 +62,6 @@ class AgencyController extends AbstractController
         ]);
     }
 
-//    /**
-//     * @Route("/{id}", name="agency_show", methods={"GET"})
-//     * @ParamConverter("agency")
-//     * @ParamConverter("agencyService", class="App\Service\AgencyServiceInterface", options={"param": "agency"})
-//     */
-//    public function show(AgencyServiceInterface $agencyService, Agency $agency): Response
-//    {
-//        return $this->render('agency/show.html.twig', [
-//            'agency' => $agency,
-//            'members' => $agencyService->getMembersAgency($agency),
-//        ]);
-//    }
-
     /**
      * @Route("/{id}/edit", name="agency_edit", methods={"GET","POST"})
      */
